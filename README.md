@@ -11,9 +11,10 @@ W projekcie należy obliczyć znormalizowany współczynnik małosygnałowego w
 Warstwa falowodowa wykonana jest z kryształu ZBLAN domieszkowanego Er<sup>3+</sup> o współczynniku załamania n<sub>1</sub>=1,53. Podłoże to czysty kryształ ZBLAN o współczynniku załamania n<sub>2</sub>=1,529. Po bokach światłowód otacza również kryształ ZBLAN o współczynniku załamania n<sub>4</sub>=n<sub>5</sub>=1,529. Z góry z kolei występuje powietrze o współczynniku załamania n<sub>3</sub>=1. Laser emituje promieniowanie o długości &lambda;=1,54 &micro;m w wolnej przestrzeni. Długość struktury laserowej wynosi L=5 cm, t oznacza szerokość, a d grubość falowodu. Rezonator Fabry-Perot'a tworzą wyszlifowane końce światłowodu odpowiadające zwierciadłom. Każde z nich ma inny amplitudowy współczynnik odbicia, odpowiednio r<sub>1</sub> i r<sub>2</sub>.
 
 | Szerokość t [um] | Grubość d [um] | Mody Exmn | Stałe Bxmn modu Exmn| Mody Eymn | Stałe  Bxmn modu Exmn|
-                          1,00         E11                               E11
-                          1,51         E21                               E21                            
-                          2,01         E31                               E31
-                          2,51         E41                               E41
-                          3,01         E51                               E51
+         1,00              1,20            E11                               E11
+         1,51              1,90            E21                               E21                            
+         2,01              2,61            E31                               E31
+         2,51              3,31            E41                               E41
+         3,01              4,00            E51                               E51
                           
+(Sprawdzić czy wartości d są ok)
