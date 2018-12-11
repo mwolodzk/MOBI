@@ -15,6 +15,24 @@ Warstwa falowodowa wykonana jest z kryształu ZBLAN domieszkowanego Er<sup>3+</s
          1,51              1,90            E21                               E21                            
          2,01              2,61            E31                               E31
          2,51              3,31            E41                               E41
-         3,01              4,00            E51                               E51
+         3,02              4,00            E51                               E51
                           
 (Sprawdzić czy wartości d są ok)
+
+
+Zanotowane na wszelki wypadek:
+Wartości przed skokiem     Po skoku 
+dx1 0,70                   0,43
+dx2 1,22                   0,95
+dx3 1,73                   1,46
+dx4 2,25                   1,98
+dx5 2,76                   2,49
+dx6 3,28                   3,00
+
+
+min dx1/dy1/tx1/ty1        0,51
+min dx2/dy2/tx2/ty2        1,00
+min dx3/dy3/tx3/ty3        1,51
+min dx4/dy4/tx4/ty4        2,01
+min dx5/dy5/tx5/ty5        2,52
+min dx6/dy6/tx6/ty6        3,02
