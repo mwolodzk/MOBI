@@ -13,11 +13,11 @@ Warstwa falowodowa wykonana jest z kryształu ZBLAN domieszkowanego Er<sup>3+</s
 
 | Szerokość t [&mu;m] | Grubość d [&mu;m] | Mody E<sup>x</sup><sub>mn</sub> | Stałe B<sup>x</sup><sub>mn</sub> modu E<sup>x</sup><sub>mn</sub>| Mody E<sup>y</sup><sub>mn</sub> | Stałe  B<sup>x</sup><sub>mn</sub> modu E<sup>x</sup><sub>mn</sub>|
 |:----------------:|:--------------:|:---------:|:-------------------:|:---------:|:--------------------:|
-|        1,00      |       1,20     |      E11  |                     |      E11  |                      |
-|        1,51      |       1,90     |      E21  |                     |      E21  |                      |
-|        2,01      |       2,61     |      E31  |                     |      E31  |                      |
-|        2,51      |       3,31     |      E41  |                     |      E41  |                      |
-|        3,02      |       4,00     |      E51  |                     |      E51  |                      |
+|        1,00      |       0,95     |      E11  |                     |      E11  |                      |
+|        1,51      |       1,46     |      E21  |                     |      E21  |                      |
+|        2,01      |       1,98     |      E31  |                     |      E31  |                      |
+|        2,51      |       2,49     |      E41  |                     |      E41  |                      |
+|        3,02      |       3,00     |      E51  |                     |      E51  |                      |
                           
 (Sprawdzić czy wartości d są ok)
 
