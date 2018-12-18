@@ -1,6 +1,6 @@
 # MOBI
 Projekt 2-18Z,
-Sprawozdanie dostępne pod [tym adresem](https://docs.google.com/document/d/1M5NSKCE3gOpBNNCxpjxObYETXZ9SFgV7HhfA5JLf4mE/edit?usp=sharing).
+Sprawozdanie dostępne pod [tym adresem](https://docs.google.com/document/d/1M5NSKCE3gOpBNNCxpjxObYETXZ9SFgV7HhfA5JLf4mE/edit?usp=sharing). Arkusz z wykresami do sprawozdania jest [tutaj](https://docs.google.com/spreadsheets/d/16ScwitgZi-EMqtNMCXtgcwLadb4m6FwMjptFiRQeXZ8/edit?usp=sharing).
 ## Zadanie
 W projekcie należy obliczyć znormalizowany współczynnik małosygnałowego wzmocnienia w laserze paskowym F-P w funkcji współczynnika odbicia jednego ze zwierciadeł rezonatora dla różnych parametrów struktury laserowej. Do wykonania analizy małosygnałowego wzmocnienia konieczne jest wyznaczenie szerokości i grubości struktury paskowej zapewniającej pracę wielomodową. Uzyskane wyniki należy zaprezentować w formie raportu.
 
