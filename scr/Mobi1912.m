@@ -1,0 +1,310 @@
+clear all;
+close all;
+clc;
+format long;
+
+
+sample = 200; % ilosc probek
+n1 = 1.53; 
+n2 = 1.529;
+n3 = 1;
+n4 = 1.529;
+n5 = n4;
+lambda = 1.54*1e-6;
+L = 0.05;
+P_ratio = 0.001;
+k0= 2*pi /lambda; %wektor falowy 
+Alfa = 0.01/L;
+zakres = 2.5*10^5;
+kxx = linspace (0, zakres, sample); 
+kxy = linspace (0, zakres, sample); 
+kyx = linspace (0, zakres, sample); 
+kyy = linspace (0, zakres, sample); 
+dokladnosc = 1e-4;
+
+
+%Obliczanie i wykreslanie grubosci odciecia d
+y2x = sqrt((k0.^2.*((n1.^2)-(n2.^2)))-kxx.^2);
+y3x = sqrt((k0.^2.*((n1.^2)-(n3.^2)))-kxx.^2);
+y2y = sqrt((k0.^2.*((n1.^2)-(n2.^2)))-kyx.^2);
+y3y = sqrt((k0.^2.*((n1.^2)-(n3.^2)))-kyx.^2);
+dx1=((atan(((n1.^2).*kxx.*(((n3.^2).*y2x)+(n2.^2).*y3x))./(((n2.^2).*(n3.^2).*(kxx.^2))-(n1.^4).*y2x.*y3x)))+1.*pi)./kxx;
+%semilogy(kxx,dx1)
+%hold on
+%grid on
+dx2=((atan(((n1.^2).*kxx.*(((n3.^2).*y2x)+(n2.^2).*y3x))./(((n2.^2).*(n3.^2).*(kxx.^2))-(n1.^4).*y2x.*y3x)))+2.*pi)./kxx;
+%semilogy(kxx,dx2)
+dx3=((atan(((n1.^2).*kxx.*(((n3.^2).*y2x)+(n2.^2).*y3x))./(((n2.^2).*(n3.^2).*(kxx.^2))-(n1.^4).*y2x.*y3x)))+3.*pi)./kxx;
+%semilogy(kxx,dx3)
+dx4=((atan(((n1.^2).*kxx.*(((n3.^2).*y2x)+(n2.^2).*y3x))./(((n2.^2).*(n3.^2).*(kxx.^2))-(n1.^4).*y2x.*y3x)))+4.*pi)./kxx;
+%semilogy(kxx,dx4)
+dx5=((atan(((n1.^2).*kxx.*(((n3.^2).*y2x)+(n2.^2).*y3x))./(((n2.^2).*(n3.^2).*(kxx.^2))-(n1.^4).*y2x.*y3x)))+5.*pi)./kxx;
+%semilogy(kxx,dx5)
+dx6=((atan(((n1.^2).*kxx.*(((n3.^2).*y2x)+(n2.^2).*y3x))./(((n2.^2).*(n3.^2).*(kxx.^2))-(n1.^4).*y2x.*y3x)))+6.*pi)./kxx;
+%semilogy(kxx,dx6)
+dy1=((atan((kyx.*(y2y+y3y))./((kyx.^2)-y2y.*y3y)))+1*pi)./kyx;
+%semilogy(kyx,dy1)
+dy2=((atan((kyx.*(y2y+y3y))./((kyx.^2)-y2y.*y3y)))+2*pi)./kyx;
+%semilogy(kyx,dy2)
+dy3=((atan((kyx.*(y2y+y3y))./((kyx.^2)-y2y.*y3y)))+3*pi)./kyx;
+%semilogy(kyx,dy3)
+dy4=((atan((kyx.*(y2y+y3y))./((kyx.^2)-y2y.*y3y)))+4*pi)./kyx;
+%semilogy(kyx,dy4)
+dy5=((atan((kyx.*(y2y+y3y))./((kyx.^2)-y2y.*y3y)))+5*pi)./kyx;
+%semilogy(kyx,dy5)
+dy6=((atan((kyx.*(y2y+y3y))./((kyx.^2)-y2y.*y3y)))+6*pi)./kyx;
+%semilogy(kyx,dy6)
+%legend('dx1','dx2','dx3','dx4','dx5','dx6','dy1','dy2','dy3','dy4','dy5','dy6')
+%legend('dy1','dy2','dy3','dy4','dy5','dy6')
+%semilogy(kxx,Check,'r-',Check2,dx1,'r-')
+%Check1 = 0.88e-6*ones(sample);
+%semilogy(kxx,Check1,'r-')
+%Check2 = 1.59e-6*ones(sample);
+%semilogy(kxx,Check2,'r-')
+%Check3 = 2.30e-6*ones(sample);
+%semilogy(kxx,Check3,'r-')
+%Check4 = 3.01e-6*ones(sample);
+%semilogy(kxx,Check4,'r-')
+%Check5 = 3.72e-6*ones(sample);
+%semilogy(kxx,Check5,'r-')
+%legend('dx1')
+%xlabel('kx')
+%ylabel('d')
+%title('Grubo?? odci?cia')
+%hold off
+
+
+
+%%%% Obliczanie i  wykreslanie szerokosci odciecia t %%%%
+y4x=sqrt((k0.^2.*((n1.^2)-(n4.^2)))-kxy.^2);
+y5x=sqrt((k0.^2.*((n1.^2)-(n5.^2)))-kxy.^2);
+y4y=sqrt((k0.^2.*((n1.^2)-(n4.^2)))-kyy.^2);
+y5y=sqrt((k0.^2.*((n1.^2)-(n5.^2)))-kyy.^2);
+%figure()
+tx1=((atan((kxy.*(y4x+y5x))./((kxy.^2)-y4x.*y5x)))+1*pi)./kxy;
+%semilogy(kxy,tx1)
+%hold on
+%grid on
+tx2=((atan((kxy.*(y4x+y5x))./((kxy.^2)-y4x.*y5x)))+2*pi)./kxy;
+%semilogy(kxy,tx2)
+tx3=((atan((kxy.*(y4x+y5x))./((kxy.^2)-y4x.*y5x)))+3*pi)./kxy;
+%semilogy(kxy,tx3)
+tx4=((atan((kxy.*(y4x+y5x))./((kxy.^2)-y4x.*y5x)))+4*pi)./kxy;
+%semilogy(kxy,tx4)
+tx5=((atan((kxy.*(y4x+y5x))./((kxy.^2)-y4x.*y5x)))+5*pi)./kxy;
+%semilogy(kxy,tx5)
+tx6=((atan((kxy.*(y4x+y5x))./((kxy.^2)-y4x.*y5x)))+6*pi)./kxy;
+%semilogy(kxy,tx6)
+ty1=((atan(((n1.^2).*kyy.*(((n4.^2).*y5y)+(n5.^2).*y4y))./(((n4.^2).*(n5.^2).*(kyy.^2))-(n1.^4).*y4y.*y5y)))+1.*pi)./kxy;
+%semilogy(kyy,ty1)
+ty2=((atan(((n1.^2).*kyy.*(((n4.^2).*y5y)+(n5.^2).*y4y))./(((n4.^2).*(n5.^2).*(kyy.^2))-(n1.^4).*y4y.*y5y)))+2.*pi)./kxy;
+%semilogy(kyy,ty2)
+ty3=((atan(((n1.^2).*kyy.*(((n4.^2).*y5y)+(n5.^2).*y4y))./(((n4.^2).*(n5.^2).*(kyy.^2))-(n1.^4).*y4y.*y5y)))+3.*pi)./kxy;
+%semilogy(kyy,ty3)
+ty4=((atan(((n1.^2).*kyy.*(((n4.^2).*y5y)+(n5.^2).*y4y))./(((n4.^2).*(n5.^2).*(kyy.^2))-(n1.^4).*y4y.*y5y)))+4.*pi)./kxy;
+%semilogy(kyy,ty4)
+ty5=((atan(((n1.^2).*kyy.*(((n4.^2).*y5y)+(n5.^2).*y4y))./(((n4.^2).*(n5.^2).*(kyy.^2))-(n1.^4).*y4y.*y5y)))+5.*pi)./kxy;
+%semilogy(kyy,ty5)
+ty6=((atan(((n1.^2).*kyy.*(((n4.^2).*y5y)+(n5.^2).*y4y))./(((n4.^2).*(n5.^2).*(kyy.^2))-(n1.^4).*y4y.*y5y)))+6.*pi)./kxy;
+%semilogy(kyy,ty6)
+%legend('tx1','tx2','tx3','tx4','tx5','tx6','ty1','ty2','ty3','ty4','ty5','ty6')
+%xlabel('ky')
+%ylabel('t')
+%title('Szerokosc odciecia')
+%hold off
+%obliczenia Kappy i Bety
+dx = 20.8e-6;
+dy = 20.8e-6;
+tx = 107.3e-6;
+ty = 107.3e-6;
+%dokladnosc
+k_vector = linspace (0, zakres, sample); 
+%wybor modu
+m = 1;
+n = 5;
+f1=@(kxx)(atan(((n1.^2).*kxx.*(((n3.^2).*(sqrt((k0.^2.*(n1.^2-n2.^2))-kxx.^2)))+(n2.^2).*(sqrt((k0.^2.*(n1.^2-n3.^2))-kxx.^2))))./(((n2.^2).*(n3.^2).*(kxx.^2))-(n1.^4).*(sqrt((k0.^2.*(n1.^2-n2.^2))-kxx.^2)).*(sqrt((k0.^2.*(n1.^2-n3.^2))-kxx.^2)))))+m.*pi - dx.*kxx;
+f2=@(kxy)(atan(kxy.*((sqrt((k0.^2.*(n1.^2-n4.^2))-kxy.^2))+(sqrt((k0.^2.*(n1.^2-n4.^2))-kxy.^2)))/(kxy.^2-(sqrt((k0.^2.*(n1.^2-n4.^2))-kxy.^2))-(sqrt((k0.^2.*(n1.^2-n4.^2))-kxy.^2)))))+n.*pi - tx.*kxy;
+f3=@(kyx)(atan(kyx.*((sqrt((k0.^2.*(n1.^2-n2.^2))-kyx.^2))+(sqrt((k0.^2.*(n1.^2-n3.^2))-kyx.^2)))/(kyx.^2-(sqrt((k0.^2.*(n1.^2-n2.^2))-kyx.^2))-(sqrt((k0.^2.*(n1.^2-n3.^2))-kyx.^2)))))+m.*pi - dy.*kyx;
+f4=@(kyy)(atan(((n1.^2).*kyy.*(((n4.^2).*(sqrt((k0.^2.*(n1.^2-n5.^2))-kyy.^2)))+(n5.^2).*(sqrt((k0.^2.*(n1.^2-n4.^2))-kyy.^2))))./(((n4.^2).*(n5.^2).*(kyy.^2))-(n1.^4).*(sqrt((k0.^2.*(n1.^2-n4.^2))-kyy.^2)).*(sqrt((k0.^2.*(n1.^2-n5.^2))-kyy.^2)))))+n.*pi - ty.*kyy;
+%wybor funkcji ktorej zera bedziemy szukac
+fx=f4;
+Check1 = 0.*ones(sample);
+plot(k_vector, fx(k_vector),'b-o',k_vector,Check1,'r-')
+xlabel('kvector')
+ylabel('f(kvector)')
+title('Miejsce zerowe')
+hold off
+%metoda bisekcji do wyliczenia kolejnych wartosci kappa
+licznik=0;
+k1 = 0;
+k2 = zakres;
+p=0;
+err=10;
+if real(fx(k1))*real(fx(k2))>0 
+    disp('zly zakres')
+else
+    disp('else')
+    p = (k1 + k2)/2;
+    err = abs((fx(p)));
+    while err > dokladnosc
+        licznik=licznik+1;
+            disp('petla')
+   if real(fx(k1))*real(fx(p))>0 
+      k1 = p;
+   else
+       k2 = p;   
+   end
+    p = (k1 + k2)/2;
+   err = abs(real(f3(p)));
+   if licznik>500
+       break
+   end
+    end
+end
+    disp('skonczone obliczenia za pomoca bisekcji')
+%wyniki K
+
+Kxx_11 = 1.228542987640665e+05;
+Kxy_11 = 1.474324618702575e+05;
+Kyx_11 = 2.242889404296875e+05;
+Kyy_11 = 8.211067817812593e+04;
+Kyy_11 = 8.211067817812593e+04;
+Kxx_21 = 1.586624213047154e+05;
+Kxy_21 = 1.474324618702575e+05;
+Kyx_21 = 2.256164550781250e+05;
+Kyy_21 = 8.211067817812593e+04;
+Kxx_31 = 1.756212020057239e+05;
+Kxy_31 = 1.474324618702575e+05;
+Kyx_31 = 2.257270812988281e+05;
+Kyy_31 = 8.211067817812593e+04;
+Kxx_41 = 1.856423888820215e+05;
+Kxy_41 = 1.474324618702575e+05;
+Kyx_41 = 2.257919311523438e+05;
+Kyy_41 = 8.211067817812593e+04;
+Kxx_51 = 1.922825867608165e+05;
+Kxy_51 = 1.474324618702575e+05;
+Kyx_51 = 2.258319854736328e+05;
+Kyy_51 = 8.211067817812593e+04;
+Kxx_12 = 1.228542987640665e+05;
+Kxy_12 = 1.521653587979670e+05;
+Kyx_12 = 2.242889404296875e+05;
+Kyy_12 = 1.082676033273927e+05;
+Kxx_13 = 1.228542987640665e+05;
+Kxy_13 = 1.545565220435402e+05;
+Kyx_13 = 2.242889404296875e+05;
+Kyy_13 = 1.213778569795339e+05;
+Kxx_14 = 1.228542987640665e+05;
+Kxy_14 = 1.559369986783575e+05;
+Kyx_14 = 2.242889404296875e+05;
+Kyy_14 = 1.292467700262897e+05;
+Kxx_15 = 1.228542987640665e+05;
+Kxy_15 = 1.568363514184332e+05;
+Kyx_15 = 2.242889404296875e+05;
+Kyy_15 = 1.345021214387608e+05;
+%wyliczanie Bety na podstawie uzyskanych wczesniej kappa
+Betax11 = sqrt(n1.^2*k0.^2-Kxx_11.^2-Kxy_11.^2);
+Betay11 = sqrt(n1.^2*k0.^2-Kyx_11.^2-Kyy_11.^2);
+Betax21 = sqrt(n1.^2*k0.^2-Kxx_21.^2-Kxy_21.^2);
+Betay21 = sqrt(n1.^2*k0.^2-Kyx_21.^2-Kyy_21.^2);
+Betax31 = sqrt(n1.^2*k0.^2-Kxx_31.^2-Kxy_31.^2);
+Betay31 = sqrt(n1.^2*k0.^2-Kyx_31.^2-Kyy_31.^2);
+Betax41 = sqrt(n1.^2*k0.^2-Kxx_41.^2-Kxy_41.^2);
+Betay41 = sqrt(n1.^2*k0.^2-Kyx_41.^2-Kyy_41.^2);
+Betax51 = sqrt(n1.^2*k0.^2-Kxx_51.^2-Kxy_51.^2);
+Betay51 = sqrt(n1.^2*k0.^2-Kyx_51.^2-Kyy_51.^2);
+Betax12 = sqrt(n1.^2*k0.^2-Kxx_12.^2-Kxy_12.^2);
+Betay12 = sqrt(n1.^2*k0.^2-Kyx_12.^2-Kyy_12.^2);
+Betax13 = sqrt(n1.^2*k0.^2-Kxx_13.^2-Kxy_13.^2);
+Betay13 = sqrt(n1.^2*k0.^2-Kyx_13.^2-Kyy_13.^2);
+Betax14 = sqrt(n1.^2*k0.^2-Kxx_14.^2-Kxy_14.^2);
+Betay14 = sqrt(n1.^2*k0.^2-Kyx_14.^2-Kyy_14.^2);
+Betax15 = sqrt(n1.^2*k0.^2-Kxx_15.^2-Kxy_15.^2);
+Betay15 = sqrt(n1.^2*k0.^2-Kyx_15.^2-Kyy_15.^2);
+%%%%Obliczenia wzmocnienia
+r1 = 1;
+r2a = linspace (0.01,0.90,90);
+r2b = linspace(0.91,0.999,90);
+r2_vector = [r2a,r2b];
+r2=0.5;
+%for i=1:180
+%   C(i) = 1/r2(i)*(1/r1*(1-r1^2)+1/r2(i)*(1-r2(i)^2)); 
+%end
+%z = linspace(0,L,sample);
+%z = linspace(-2*L,2*L,20);
+%plot(z,fR(z),'r',z,fS(z),'b');
+%Pole elektryczne modu Ex11 w poszczegolnych fragmentach struktury
+dx_1 = 20.8e-6;
+tx_1 = 29.2e-6;
+nx_11 = (atan(-sqrt((k0.^2.*((n1.^2)-(n5.^2)))-Kxy_11.^2)/(Kxy_11))+1*pi/(Kxy_11));
+nx_12 = (atan(-sqrt((k0.^2.*((n1.^2)-(n5.^2)))-Kxy_12.^2)/(Kxy_12))+2*pi/(Kxy_12));
+nx_13 = (atan(-sqrt((k0.^2.*((n1.^2)-(n5.^2)))-Kxy_13.^2)/(Kxy_13))+3*pi/(Kxy_13));
+nx_14 = (atan(-sqrt((k0.^2.*((n1.^2)-(n5.^2)))-Kxy_14.^2)/(Kxy_14))+4*pi/(Kxy_14));
+nx_15 = (atan(-sqrt((k0.^2.*((n1.^2)-(n5.^2)))-Kxy_15.^2)/(Kxy_15))+5*pi/(Kxy_15));
+nx_21 = (atan(-sqrt((k0.^2.*((n1.^2)-(n5.^2)))-Kxy_21.^2)/(Kxy_21))+1*pi/(Kxy_21));
+nx_31 = (atan(-sqrt((k0.^2.*((n1.^2)-(n5.^2)))-Kxy_31.^2)/(Kxy_31))+1*pi/(Kxy_31));
+nx_41 = (atan(-sqrt((k0.^2.*((n1.^2)-(n5.^2)))-Kxy_41.^2)/(Kxy_41))+1*pi/(Kxy_41));
+nx_51 = (atan(-sqrt((k0.^2.*((n1.^2)-(n5.^2)))-Kxy_51.^2)/(Kxy_51))+1*pi/(Kxy_51));
+Ksi_11 = (atan((-n3.^2*Kxx_11)/(n1.^2*sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_11.^2)))+1*pi)/Kxx_11;
+Ksi_12 = (atan((-n3.^2*Kxx_12)/(n1.^2*sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_12.^2)))+1*pi)/Kxx_12;
+Ksi_13 = (atan((-n3.^2*Kxx_13)/(n1.^2*sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_13.^2)))+1*pi)/Kxx_13;
+Ksi_14 = (atan((-n3.^2*Kxx_14)/(n1.^2*sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_14.^2)))+1*pi)/Kxx_14;
+Ksi_15 = (atan((-n3.^2*Kxx_15)/(n1.^2*sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_15.^2)))+1*pi)/Kxx_15;
+Ksi_21 = (atan((-n3.^2*Kxx_21)/(n1.^2*sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_21.^2)))+2*pi)/Kxx_21;
+Ksi_31 = (atan((-n3.^2*Kxx_31)/(n1.^2*sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_31.^2)))+2*pi)/Kxx_31;
+Ksi_41 = (atan((-n3.^2*Kxx_41)/(n1.^2*sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_41.^2)))+2*pi)/Kxx_41;
+Ksi_51 = (atan((-n3.^2*Kxx_51)/(n1.^2*sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_51.^2)))+2*pi)/Kxx_51;
+
+%petla liczy goL_11(r2) dla P_ratio, ktore ustalamy na poczatku kodu
+for i=1:180
+r2 = r2_vector(i);
+
+Gamma = 1/2*L * log(1/r1*r2);
+
+fR = @(z) exp(Gamma*z);
+fS = @(z) 1./r2.*(exp (-Gamma*z));
+
+
+C = 1/r2*(1/r1*(1-r1^2)+1/r2*(1-r2^2)); 
+
+fun1 = @(z) abs(fR(z)).^2+abs(fS(z)).^2;
+Licznik_1 = integral(fun1,-L/2,L/2);
+
+
+
+Ex_A_11 = @(x,y) i/Kxx_11.*(n1^.2.*k0^.2-Kxx_11^.2).*cos(Kxy_11.*(y+nx_11)).*sin(Kxx_11.*(x+Ksi_11));
+Ex_B_11 = @(x,y) i/(sqrt((k0.^2.*((n1.^2)-(n2.^2)))-Kxx_11.^2).*Betax11).*((sqrt((k0.^2.*((n1.^2)-(n2.^2)))-Kxx_11.^2)^.2)+n2.^2.*k0.^2).*cos(Kxy_11.*(y+nx_11)).*cos(Kxx_11.*(Ksi_11-dx_1)).*exp(sqrt((k0.^2.*((n1.^2)-(n2.^2)))-Kxx_11.^2).*(x+dx_1));
+Ex_C_11 = @(x,y) -i/(sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_11.^2).*Betax11).*((sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_11^.2).^2)+n3.^2+k0.^2).*cos(Kxy_11.*(y+nx_11)).*cos(Kxx_11.*Ksi_11).*exp(-sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_11.^2).*x);
+Ex_D_11 = @(x,y) (i.*n4.^2*k0.^2-Kxx_11.^2)/(n4.^2.*Kxx_11.*Betax11).*cos(Kxy_11.*(tx_1+nx_11)).*sin(Kxx_11.*(x+Ksi_11)).*exp(-sqrt((k0.^2.*((n1.^2)-(n4.^2)))-Kxy_11.^2).*(y-tx_1));
+Ex_E_11 = @(x,y) (i.*n5.^2*k0.^2-Kxx_11.^2)/(n5.^2.*Kxx_11.*Betax11).*cos(Kxy_11.*nx_11).*sin(Kxx_11.*(x+Ksi_11)).*exp(sqrt((k0.^2.*((n1.^2)-(n5.^2)))-Kxy_11.^2).*y);
+
+Ex_A_11_abs_2 = @(x,y) (abs(i/Kxx_11.*(n1^.2.*k0^.2-Kxx_11^.2).*cos(Kxy_11.*(y+nx_11)).*sin(Kxx_11.*(x+Ksi_11)))).^2;
+Ex_B_11_abs_2 = @(x,y) (abs(i/(sqrt((k0.^2.*((n1.^2)-(n2.^2)))-Kxx_11.^2).*Betax11).*((sqrt((k0.^2.*((n1.^2)-(n2.^2)))-Kxx_11.^2)^.2)+n2.^2.*k0.^2).*cos(Kxy_11.*(y+nx_11)).*cos(Kxx_11.*(Ksi_11-dx_1)).*exp(sqrt((k0.^2.*((n1.^2)-(n2.^2)))-Kxx_11.^2).*(x+dx_1)))).^2;
+Ex_C_11_abs_2 = @(x,y) (abs(-i/(sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_11.^2).*Betax11).*((sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_11^.2).^2)+n3.^2+k0.^2).*cos(Kxy_11.*(y+nx_11)).*cos(Kxx_11.*Ksi_11).*exp(-sqrt((k0.^2.*((n1.^2)-(n3.^2)))-Kxx_11.^2).*x))).^2;
+Ex_D_11_abs_2 = @(x,y) (abs((i.*n4.^2*k0.^2-Kxx_11.^2)/(n4.^2.*Kxx_11.*Betax11).*cos(Kxy_11.*(tx_1+nx_11)).*sin(Kxx_11.*(x+Ksi_11)).*exp(-sqrt((k0.^2.*((n1.^2)-(n4.^2)))-Kxy_11.^2).*(y-tx_1)))).^2;
+Ex_E_11_abs_2 = @(x,y) (ambs((i.*n5.^2*k0.^2-Kxx_11.^2)/(n5.^2.*Kxx_11.*Betax11).*cos(Kxy_11.*nx_11).*sin(Kxx_11.*(x+Ksi_11)).*exp(sqrt((k0.^2.*((n1.^2)-(n5.^2)))-Kxy_11.^2).*y))).^2;
+
+
+Calka2_1A_11 = integral2(Ex_A_11_abs_2,-dx_1,0,0,tx_1);
+Calka2_1B_11 = integral2(Ex_B_11_abs_2,-dx_1*5,-dx_1,0,tx_1);
+Calka2_1C_11 = integral2(Ex_C_11_abs_2,0,dx_1*5,0,tx_1);
+Calka2_1D_11 = integral2(Ex_D_11_abs_2,-dx_1,0,tx_1,tx_1*5);
+Calka2_1E_11 = integral2(Ex_E_11_abs_2,-dx_1,0,-tx_1*5,0);
+
+Mianownik_11 = 2/(Calka2_1A_11+Calka2_1B_11+Calka2_1C_11+Calka2_1D_11+Calka2_1E_11);
+
+F_int3_A_11 = @(x,y,z)  (((abs(fR(z))).^2+(abs(fS(z)))).^2.*Ex_A_11_abs_2(x,y))./(1+P_ratio.*(((abs(fR(z))).^2+(abs(fS(z)))).^2.*Ex_A_11_abs_2(x,y))./C); 
+F_int3_B_11 = @(x,y,z)  (((abs(fR(z))).^2+(abs(fS(z)))).^2.*Ex_B_11_abs_2(x,y))./(1+P_ratio.*(((abs(fR(z))).^2+(abs(fS(z)))).^2.*Ex_B_11_abs_2(x,y))./C);
+F_int3_C_11 = @(x,y,z)  (((abs(fR(z))).^2+(abs(fS(z)))).^2.*Ex_C_11_abs_2(x,y))./(1+P_ratio.*(((abs(fR(z))).^2+(abs(fS(z)))).^2.*Ex_C_11_abs_2(x,y))./C); 
+F_int3_D_11 = @(x,y,z)  (((abs(fR(z))).^2+(abs(fS(z)))).^2.*Ex_D_11_abs_2(x,y))./(1+P_ratio.*(((abs(fR(z))).^2+(abs(fS(z)))).^2.*Ex_D_11_abs_2(x,y))./C); 
+F_int3_E_11 = @(x,y,z)  (((abs(fR(z))).^2+(abs(fS(z)))).^2.*Ex_E_11_abs_2(x,y))./(1+P_ratio.*(((abs(fR(z))).^2+(abs(fS(z)))).^2.*Ex_E_11_abs_2(x,y))./C);
+Calka_3_E11_A = integral3(F_int3_A_11,-dx_1,0,0,tx_1,-L/2,L/2);
+Calka_3_E11_B = integral3(F_int3_B_11,-5*dx_1,-dx_1,0,tx_1,-L/2,L/2);
+Calka_3_E11_C = integral3(F_int3_C_11,0,5*dx_1,0,tx_1,-L/2,L/2);
+Calka_3_E11_D = integral3(F_int3_D_11,-dx_1,0,tx_1,5*tx_1,-L/2,L/2);
+Calka_3_E11_E = integral3(F_int3_E_11,-dx_1,0,-5*tx_1,0,-L/2,L/2);
+Calka_3_E11_Suma = Calka_3_E11_A+Calka_3_E11_B+Calka_3_E11_C+Calka_3_E11_D+Calka_3_E11_E;
+goL_11(i) = (C+2*Alfa*Licznik_1)/(Mianownik_11*Calka_3_E11_Suma);
+i
+end
+
+plot(r2_vector,goL_11,'r');
